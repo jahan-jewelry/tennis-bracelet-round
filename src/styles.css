@@ -300,7 +300,7 @@ li {
     right: 0;
   }
   .buttons-container{
-    height: 10px;
+    height: 2px;
     position: relative;
   }
   .carats{
@@ -332,5 +332,13 @@ li {
   .logo{
     height: 30px;
   }
-  
+  .active-carats{
+    background-color: #ffffff;
+    border: none;
+    box-shadow: rgba(17, 12, 46, 0.05) 0px 40px 100px 0px;
+  }
+  .carats:hover{
+    border: none;
+    background-color: #ffffff;
+  }
 }
