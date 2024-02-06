@@ -15,6 +15,8 @@ import {
     TemporalAAPlugin,
     AnisotropyPlugin,
     GammaCorrectionPlugin,
+    VariationConfiguratorPlugin,
+    
 
     addBasePlugins,
     ITexture, TweakpaneUiPlugin, AssetManagerBasicPopupPlugin, CanvasSnipperPlugin,
@@ -31,7 +33,12 @@ async function setupViewer(){
     // Initialize the viewer
     const viewer = new ViewerApp({
         canvas: document.getElementById('webgi-canvas') as HTMLCanvasElement,
+        isAntialiased: false,
+        scale: 2,
     })
+
+    // Add some plugins
+    const manager = await viewer.addPlugin(AssetManagerPlugin)
 
     // Add plugins individually.
     // await viewer.addPlugin(GBufferPlugin)
@@ -53,7 +60,7 @@ async function setupViewer(){
     await addBasePlugins(viewer) // check the source: https://codepen.io/repalash/pen/JjLxGmy for the list of plugins added.
 
     // Add a popup(in HTML) with download progress when any asset is downloading.
-    await viewer.addPlugin(AssetManagerBasicPopupPlugin)
+    //await viewer.addPlugin(AssetManagerBasicPopupPlugin)
 
     // Required for downloading files from the UI
     await viewer.addPlugin(FileTransferPlugin)
@@ -62,15 +69,51 @@ async function setupViewer(){
     await viewer.addPlugin(CanvasSnipperPlugin)
 
     // Import and add a GLB file.
-    await viewer.load("./assets/classic-watch.glb")
+    await viewer.load("./assets/BraceletOptions.glb")
+
+
+
+
+
+    // Add VariationConfiguratorPlugin YOU SHOULD DELETE THIS IF THIS DOES NOT WORK
+    
+    const config = await viewer.addPlugin(VariationConfiguratorPlugin);
+    await config.importPath("./assets/config.json");
+    const variations = config.variations;
+    const objects = variations.objects;
+    const materials = variations.materials;
+    const object = objects[0];
+    const material = materials[0];
+    const category = config.variations.objects[0]
+    config.applyVariation(category , 0 , 'objects' );
+
+    document.querySelectorAll(".object").forEach((el) => {
+      el.addEventListener("click", () => {
+        const category = config.variations.objects.find((cat) => cat.name === el.getAttribute("data-category"));
+        const index = parseInt(el.getAttribute("data-index"));
+        const type = "objects";
+  
+        config.applyVariation(category, index, type);
+      });
+    });
+
+    document.querySelectorAll(".material").forEach((el) => {
+        el.addEventListener("click", () => {
+          const category = config.variations.materials.find((cat) => cat.name === el.getAttribute("data-category"));
+          const index = parseInt(el.getAttribute("data-index"));
+          const type = "materials";
+          
+          config.applyVariation(category, index, type);
+        });
+      });
+
+
+    // END //
+
+    
 
     // Load an environment map if not set in the glb file
     // await viewer.setEnvironmentMap("./assets/environment.hdr");
-
-    // Add some UI for tweak and testing.
-    const uiPlugin = await viewer.addPlugin(TweakpaneUiPlugin)
-    // Add plugins to the UI to see their settings.
-    uiPlugin.setupPlugins<IViewerPlugin>(TonemapPlugin, CanvasSnipperPlugin)
 
 }
 

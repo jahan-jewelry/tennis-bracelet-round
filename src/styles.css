@@ -1,17 +1,308 @@
+@font-face {
+  font-family: "HeaderFont";
+  src: url("assets/fonts/Audrey-Normal.otf") format("opentype");
+}
+@font-face {
+  font-family: "ParagraphFont";
+  src: url("assets/fonts/Spectral-ExtraLight.ttf") format("truetype");
+}
 body {
   font-family: sans-serif;
   overflow: hidden;
+  background: #f0f0f0;
+  padding: 0;
+  margin: 0;
 }
 #webgi-canvas {
+  position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 0.5rem;
+  z-index: 1;
 }
 #webgi-canvas-container{
-  width: 80vw;
-  height: 80vh;
-  margin: 10vh 10vw;
-  border-radius: 0.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.content-container{
+  background-color: #F3F3F3;
+  position: absolute;
+  width: 70%;
+  min-width: 1280px;
+  height: 50%;
+  min-height: 480px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+}
 
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+.topnav{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 80px;
+}
+.logo{
+  width: auto;
+  float: none;
+  height: 35px;
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+.flex-container1{
+  width: 50%;
+}
+.flex-container2{
+  width: 50%;
+  padding: 5% 0;
+}
+.flex-container2>H1{
+  font-family: 'HeaderFont';
+  font-weight: 100;
+  font-size: 3rem;
+  letter-spacing: -0.05rem;
+  text-transform: uppercase;
+  line-height: 3.4rem;
+  margin: 0;
+}
+.flex-container2>p{
+  font-family: 'ParagraphFont';
+  width: 80%;
+  margin: 6% 0;
+}
+button {
+  background-color: #000000;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 50%;
+  letter-spacing: 0.1rem;
+}
+
+/* CUSTOM UI YOU SHOULD DELETE */
+
+.material {
+  height: 40px;
+  width: 40px;
+  display: block;
+  background-color: #f0f0f0;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border: 3px solid white;
+}
+
+/* HORIZONTAL MENU FOR DIFFERENT STONES */
+
+ul{
+  list-style-type: none;
+  color: #000000;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 9;
+  margin: 0;
+  padding: 0;
+}
+
+.ulcontent{
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+  margin: 30px;
+  box-shadow: rgba(17, 12, 46, 0.05) 0px 40px 100px 0px;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+.pink-gold{
+  background: #c47d83;
+}
+
+.white-gold{
+  background: #ffffff;
+}
+
+.yellow-gold{
+  background: #ffe77e;
+}
+
+.gold-selection{
+  display: flex;
+  background: none;
+  box-shadow: none;
+  gap: 20px;
+  overflow: visible;
+  justify-content: flex-start;
+  margin: 0 30px;
+  float: right;
+}
+
+.round-selection{
+  display: flex;
+  background: none;
+  box-shadow: none;
+  gap: 20px;
+  overflow: visible;
+  justify-content: flex-start;
+  margin: 0 30px;
+  position: absolute;
+}
+
+.buttons-container{
+  display: block;
+  height: 40px;
+}
+
+li {
+  padding: 40px;
+}
+
+.active-li{
+  border-bottom: 2px solid rgb(179, 179, 179);
+}
+
+/* STONES ICONS */
+
+.icon{
+  cursor: pointer;
+}
+
+.round{
+  background-image: url(../assets/icons/Round.svg);
+  background-size: cover;
+  display: block;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.emerald{
+  background-image: url(../assets/icons/Emerald.svg);
+  background-size: cover;
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.pear{
+  background-image: url(../assets/icons/Pear.svg);
+  background-size: cover;
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.oval{
+  background-image: url(../assets/icons/Oval.svg);
+  background-size: cover;
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.marquise{
+  background-image: url(../assets/icons/Marquise.svg);
+  background-size: cover;
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.emerald-square{
+  background-image: url(../assets/icons/Emerald-square.svg);
+  background-size: cover;
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.cushion{
+  background-image: url(../assets/icons/Cushion.svg);
+  background-size: cover;
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+/* STONES SIZES */
+
+.carats{
+  width: 100px;
+  padding: 10px;
+  background: none;
+  font-family: "ParagraphFont";
+  border: 1px solid #d3d3d3;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: normal;
+  border-radius: 8px;
+}
+
+.carats:hover{
+  border: 1px solid #9b9b9b;
+}
+
+.active-carats{
+  background-color: #ffffff;
+  border: none;
+  box-shadow: rgba(17, 12, 46, 0.05) 0px 40px 100px 0px;
+}
+
+.active-carats:hover{
+  border: none;
+}
+
+/* MEDIA REQUESTS */
+
+@media screen and (max-width: 900px) {
+  .ulcontent {
+    justify-content: flex-start;
+    overflow-x: scroll;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  li{
+    padding: 30px;
+  }
+  .icon{
+    height: 30px;
+    width: 30px;
+  }
+  .gold-selection{
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .round-selection{
+    flex-direction: column;
+  }
+  .buttons-container{
+    height: 230px;
+    position: relative;
+  }
+  .carats{
+    border: 1px solid #a0a0a0;
+  }
 }

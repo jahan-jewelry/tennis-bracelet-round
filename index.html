@@ -2,17 +2,86 @@
 <html lang="en">
 
 <head>
-	<title>WebGi starter</title>
+	<title>Tennis Bracelets</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<style>
+		/* PRELOADER */
+		.preloader{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: 1000;
+			background-color: #dadada;
+		}
+	</style>
 </head>
 
 <body>
+	<canvas class="preloader" id='canvas'></canvas>
+	<div class="topnav">
+		<div class="topnav-centered"><img src="assets/sources/logo.svg" alt="" class="logo"></div>
+	</div>
+	
 	<div id="webgi-canvas-container">
 		<canvas id="webgi-canvas"></canvas>
 	</div>
 
-	<script src="src/index.ts" type="module"></script>
-</body>
+	<!-- HORIZONTAL MENU FOR DIFFERENT STONES -->
 
+	<ul>
+		<div class="buttons-container">
+		<div class="gold-selection">
+			<button class="material pink-gold" data-category="Metal" data-index="0"></button>
+			<button class="material white-gold" data-category="Metal" data-index="1"></button>
+			<button class="material yellow-gold" data-category="Metal" data-index="2"></button>
+		</div>
+
+
+		<div class="round-selection">
+			<button class="object carats active-carats" data-category="Model" data-index="0">0.3 CT</button>
+			<button class="object carats" data-category="Model" data-index="1">0.5 CT</button>
+			<button class="object carats" data-category="Model" data-index="2">0.7 CT</button>
+			<button class="object carats" data-category="Model" data-index="3">1.0 CT</button>
+		</div>
+		
+
+	    </div>
+
+
+		<div class="ulcontent">
+		<li class="li active-li"><a class="object" data-category="Model" data-index="0" id="btn-round"><span class="round icon"></span></a></li>
+		<li class="li"><a class="object"><span class="emerald icon"></span></a></li>
+		<li class="li"><a class="object"><span class="pear icon"></span></a></li>
+		<li class="li"><a class="object"><span class="oval icon"></span></a></li>
+		<li class="li"><a class="object"><span class="marquise icon"></span></a></li>
+		<li class="li"><a class="object"><span class="emerald-square icon"></span></a></li>
+		<li class="li"><a class="object"><span class="cushion icon"></span></a></li>
+	    </div>
+	</ul>
+    <!--<script  src="src/functions.js"></script>-->
+
+	<script src="src/index.ts" type="module"></script>
+	<script>
+	window.onload = function(){
+		//hide the preloader
+		document.querySelector(".preloader").style.display = "none";
+	};
+
+  
+// Pop-up buttons sizes
+
+var btnss = document.getElementsByClassName("carats");
+for (var i = 0; i < btnss.length; i++) {
+    btnss[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active-carats");
+    current[0].className = current[0].className.replace(" active-carats", "");
+    this.className += " active-carats";
+    });
+};
+
+</script>
+</body>
 </html>

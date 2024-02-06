@@ -1,0 +1,56 @@
+{
+    "objects": [
+        {
+            "items": [
+                "03 Ct.glb",
+                "05 Ct.glb",
+                "07 Ct.glb",
+                "1 Ct.glb"
+            ],
+            "icons": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "titles": [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "prefix": "Model/Round ",
+            "name": "Model",
+            "icon": "",
+            "title": "",
+            "selected": 0,
+            "data": {}
+        }
+    ],
+    "materials": [
+        {
+            "items": [
+                "Pink.pmat",
+                "White.pmat",
+                "Yellow.pmat"
+            ],
+            "icons": [
+                "",
+                "",
+                ""
+            ],
+            "titles": [
+                "",
+                "",
+                ""
+            ],
+            "prefix": "Metal/",
+            "name": "Metal",
+            "icon": "",
+            "title": "",
+            "selected": 1,
+            "data": {}
+        }
+    ],
+    "type": "VariationConfiguratorPlugin"
+}
