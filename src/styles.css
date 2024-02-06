@@ -299,12 +299,8 @@ li {
     bottom: 0;
     right: 0;
   }
-  .round-selection{
-    flex-direction: column;
-
-  }
   .buttons-container{
-    height: 186px;
+    height: 10px;
     position: relative;
   }
   .carats{
@@ -318,6 +314,10 @@ li {
   .round-selection{
     margin: 0 20px;
     gap: 10px;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
   .gold-selection{
     margin: 0 20px;
