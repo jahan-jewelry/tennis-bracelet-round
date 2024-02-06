@@ -299,10 +299,26 @@ li {
     flex-direction: column;
   }
   .buttons-container{
-    height: 230px;
+    height: 192px;
     position: relative;
   }
   .carats{
     border: 1px solid #a0a0a0;
+    width: 60px;
+    font-size: 12px;
+  }
+  .round-selection{
+    margin: 0 20px;
+    gap: 10px;
+  }
+  .gold-selection{
+    margin: 0 20px;
+    gap: 10px;
+  }
+  .ulcontent{
+    margin: 20px;
+  }
+  li{
+    padding: 25px;
   }
 }
