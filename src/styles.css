@@ -299,7 +299,7 @@ li {
     flex-direction: column;
   }
   .buttons-container{
-    height: 192px;
+    height: 194px;
     position: relative;
   }
   .carats{
@@ -321,4 +321,8 @@ li {
   li{
     padding: 25px;
   }
+  .logo{
+    height: 30px;
+  }
+  
 }
