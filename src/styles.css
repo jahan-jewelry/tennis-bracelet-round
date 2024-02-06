@@ -6,6 +6,10 @@
   font-family: "ParagraphFont";
   src: url("assets/fonts/Spectral-ExtraLight.ttf") format("truetype");
 }
+@font-face {
+  font-family: "NewFont";
+  src: url("assets/fonts/Montserrat-Regular.ttf") format("opentype");
+}
 body {
   font-family: sans-serif;
   overflow: hidden;
@@ -250,7 +254,7 @@ li {
   width: 100px;
   padding: 10px;
   background: none;
-  font-family: "ParagraphFont";
+  font-family: "NewFont";
   border: 1px solid #d3d3d3;
   color: #000000;
   font-size: 14px;
@@ -297,15 +301,19 @@ li {
   }
   .round-selection{
     flex-direction: column;
+
   }
   .buttons-container{
-    height: 194px;
+    height: 186px;
     position: relative;
   }
   .carats{
     border: 1px solid #a0a0a0;
     width: 60px;
     font-size: 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
   }
   .round-selection{
     margin: 0 20px;
